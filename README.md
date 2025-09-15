@@ -1,69 +1,83 @@
-# React + TypeScript + Vite
+# Advanced Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a full-featured "Advanced Task Manager" web application that allows users to perform **complete CRUD** (Create, Read, Update, Delete) operations on a list of tasks, backed by a mock API.
 
-Currently, two official plugins are available:
+Project is done for the Front-End Developer Assignment given by `TNET`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Display Tasks (Read):** Fetches and displays all tasks from a mock API in a primary view. Each task must include the title, a description (ellipsed to prevent overflow), a visual indicator for completion status, priority, and the formatted creation date.
+- **Write Operations (Create, Update, Delete):**
+  - **Create:** A modal form is used to add new tasks. The form includes fields for title, description, and priority. The priority field is a custom dropdown component, not a default HTML `<select>` element.
+  - **Update:** Users can edit a task's title, description, and priority, potentially using the same modal component as for creation. A mechanism is provided to toggle a task's completed status directly from the main list view.
+  - **Delete:** Each task has a button or icon to trigger its deletion, with a recommended confirmation step.
+- **Optimistic UI with React Query:** All write operations (Create, Update, Delete) must implement optimistic updates. The UI should update instantly, and in case of an API error, it must roll back to its previous state and notify the user.
+- **Search & Filtering:**
+  - **Search:** A text input field filters tasks by title or description in real-time.
+  - **Filter:** A dropdown menu allows filtering by completion status: "All," "Completed," and "Pending".
+- **Sorting:** Functionality is implemented to sort the task list by the `createdAt` date.
+- **Form Validation:** Client-side validation using **Zod** and **React Hook Form** ensures the following rules are met for the creation/editing form:
+  - `title`: Required, with a minimum length of 3 characters.
+  - `description`: Required, with a minimum length of 10 characters.
+  - `priority`: Required; a user must select an option.
+  - Clear error messages are displayed next to the relevant fields upon validation failure.
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Technical Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+This project was built using the following technologies:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **UI Framework:** React
+- **HTTP Client:** Axios
+- **Schema & Validation:** Zod
+- **Form Management:** React Hook Form
+- **Server State Management:** React Query
+- **Styling:** Tailwind CSS
+- **Date/Time Utility:** Day.js
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+---
 
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## ⚙️ Getting Started
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm or yarn
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Spie1er/advanced-task-manager.git
+    cd advanced-task-manager
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+    or
+    ```bash
+    yarn install
+    ```
+
+### Running the Development Server
+
+1.  **Start the front-end application:**
+    In a terminal window, run:
+    ```bash
+    npm run dev
+    ```
+    or
+    ```bash
+    yarn dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+---
+
+## 📂 Project Structure
+
+<!-- TODO ADD PROJECT STRUCTURE - @KOTE -->
