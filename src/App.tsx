@@ -9,9 +9,9 @@ function App() {
     <>
       <Routes>
         <Route path={"/"} element={<MainLayout />}>
+          <Route path="*" element={<NotFoundPage />} />
           {HOME_ROUTES}
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <ToastContainer
         position="bottom-right"
