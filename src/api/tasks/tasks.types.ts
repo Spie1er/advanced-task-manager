@@ -13,3 +13,4 @@ export enum Priority {
   HIGH = 3,
 }
 
+export type TaskListResponse = Task[];

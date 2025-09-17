@@ -66,15 +66,36 @@ This project was built using the following technologies:
 ### Running the Development Server
 
 1.  **Start the front-end application:**
-    In a terminal window, run:
+
+In a terminal window, run:
+
     ```bash
     npm run dev
     ```
+
     or
+
     ```bash
     yarn dev
     ```
+
     The application will be available at `http://localhost:5173`.
+
+2.  **Start the JSON Server:**
+
+In a terminal window, run:
+
+    ```bash
+    npm run server
+    ```
+
+    or
+
+    ```bash
+    yarn server
+    ```
+
+    The server will be available at `http://localhost:3000`.
 
 ---
 
