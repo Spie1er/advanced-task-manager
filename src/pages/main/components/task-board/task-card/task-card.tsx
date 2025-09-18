@@ -6,6 +6,7 @@ import { SquareCheck, Trash } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/common/button";
 import { Tooltip } from "@/components/common/tooltip";
+import { taskCardContainer } from "./task-card.styles";
 
 const TaskCard: React.FC<TaskCardProps> = ({
   id,
@@ -20,7 +21,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
   return (
     <div
       key={id}
-      className="border-tusky-green/40 bg-tusky-green/10 hover:border-tusky-coral cursor-pointer rounded-xl border p-4 shadow-sm transition hover:shadow-md"
+      className={taskCardContainer()}
       onClick={() => console.log(id)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
