@@ -1,7 +1,7 @@
 import { Button } from "@/components/common/button";
 import logo from "../../../assets/logo/tusky-logo.png";
 import { useState } from "react";
-import { Modal } from "@/components/common/modal";
+import { AddUpdateTaskModal } from "@/pages/main/components/add-update-task";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -26,16 +26,9 @@ const Header = () => {
         </div>
       </header>
       {openModal && (
-        <Modal
-          size="large"
+        <AddUpdateTaskModal
           isOpen={openModal}
           onClose={() => setOpenModal(false)}
-          title="Add new task..."
-          body={
-            <>
-              <div>THIS IS SOME CONTENT</div>
-            </>
-          }
         />
       )}
     </>

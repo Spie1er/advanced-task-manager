@@ -1,1 +1,1 @@
-export { default as AddUpdateTask } from "./add-update-task";
+export { default as AddUpdateTaskModal } from "./add-update-task";

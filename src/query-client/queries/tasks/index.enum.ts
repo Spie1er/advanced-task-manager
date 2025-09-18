@@ -1,3 +1,4 @@
 export enum TASKS_QUERY_KEY {
-  LIST = "TASKS_LIST",
+  LIST = "task_list",
+  SINGLE = "single_task",
 }

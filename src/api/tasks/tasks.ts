@@ -9,6 +9,11 @@ export const getAllTasks = async (query?: Record<string, string> | null) => {
   return res.data;
 };
 
+export const getSingleTask = async (taskId?: string) => {
+  const res = await api.get<Task>(TASKS_ENDPOINTS.LIST + `/${taskId}`);
+  return res.data;
+};
+
 export const addTask = async (payload: Task) => {
   const res = await api.post<{
     message: string;
@@ -16,7 +21,7 @@ export const addTask = async (payload: Task) => {
   return res.data;
 };
 
-export const updateTask = async (taskId: string | number, payload: Task) => {
+export const updateTask = async (taskId: string, payload: Task) => {
   const res = await api.patch<{
     message: string;
   }>(TASKS_ENDPOINTS.SINGLE(taskId), payload);
