@@ -20,7 +20,7 @@ function App() {
         newestOnTop={true}
         closeOnClick={true}
         pauseOnHover
-        theme="colored"
+        theme="dark"
         transition={Slide}
       />
     </>

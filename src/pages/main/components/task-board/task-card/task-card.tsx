@@ -65,7 +65,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         {/* Status + Actions */}
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-auto flex items-center justify-between">
           <TaskStatusTag completed={completed} />
 
           <div
@@ -76,10 +76,17 @@ const TaskCard: React.FC<TaskCardProps> = ({
                 <Button
                   onClick={(e) => {
                     e.stopPropagation();
-                    updateTask({
-                      taskId: id,
-                      payload: { id, completed: true },
-                    });
+                    updateTask(
+                      {
+                        taskId: id,
+                        payload: { id, completed: true },
+                      },
+                      {
+                        onSuccess: () => {
+                          toast.success("Task Updated Successfully");
+                        },
+                      }
+                    );
                   }}
                   className="rounded-full bg-green-400/10 p-2 text-green-400 transition hover:bg-green-400/20"
                   text={

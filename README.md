@@ -32,6 +32,7 @@ This project was built using the following technologies:
 
 - **UI Framework:** React
 - **HTTP Client:** Axios
+- **Mock API:** JSON Server
 - **Schema & Validation:** Zod
 - **Form Management:** React Hook Form
 - **Server State Management:** React Query
@@ -49,56 +50,72 @@ This project was built using the following technologies:
 
 ### Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/Spie1er/advanced-task-manager.git
-    cd advanced-task-manager
-    ```
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-    or
-    ```bash
-    yarn install
-    ```
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Spie1er/advanced-task-manager.git
+   cd advanced-task-manager
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
 
 ### Running the Development Server
 
-1.  **Start the front-end application:**
+1. **Start the front-end application:**
 
-In a terminal window, run:
+   In a terminal window, run:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn dev
-    ```
+   ```bash
+   yarn dev
+   ```
 
-    The application will be available at `http://localhost:5173`.
+   The application will be available at `http://localhost:5173`.
 
-2.  **Start the JSON Server:**
+2. **Start the JSON Server:**
 
-In a terminal window, run:
+   In a terminal window, run:
 
-    ```bash
-    npm run server
-    ```
+   ```bash
+   npm run server
+   ```
 
-    or
+   or
 
-    ```bash
-    yarn server
-    ```
+   ```bash
+   yarn server
+   ```
 
-    The server will be available at `http://localhost:3000`.
+   The server will be available at `http://localhost:3000`.
 
 ---
 
 ## 📂 Project Structure
 
-<!-- TODO - TECHEDBT - ADD PROJECT STRUCTURE - @KOTE -->
+```
+src/
+├─ api/                 # Axios API setup, endpoints, and types
+├─ assets/              # Images, icons, fonts, and other static assets
+├─ components/          # Reusable UI components (buttons, cards, modals, etc.)
+├─ layout/              # App layouts (header, footer, main layout)
+├─ pages/               # Page-level components (Home, TaskBoard, etc.)
+├─ query-client/        # React Query hooks, queries, and mutations
+├─ routes/              # Route definitions if using a router
+├─ styles/              # Tailwind config overrides or global CSS
+├─ utils/               # Helper functions (e.g., transform payloads)
+├─ App.tsx              # App root component
+├─ main.tsx             # Entry point for ReactDOM
+├─ vite-env.d.ts        # TypeScript type definitions for Vite
+```
