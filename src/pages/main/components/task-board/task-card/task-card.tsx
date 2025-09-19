@@ -8,6 +8,11 @@ import { Button } from "@/components/common/button";
 import { Tooltip } from "@/components/common/tooltip";
 import { taskCardContainer } from "./task-card.styles";
 import { AddUpdateTaskModal } from "../../add-update-task";
+import {
+  useDeleteTaskMutation,
+  useUpdateTaskMutation,
+} from "@/query-client/mutations/tasks";
+import { toast } from "react-toastify";
 
 const TaskCard: React.FC<TaskCardProps> = ({
   id,
@@ -20,6 +25,12 @@ const TaskCard: React.FC<TaskCardProps> = ({
   const [hovered, setHovered] = useState(false);
 
   const [modalOpen, setModalOpen] = useState<string | null>(null);
+
+  const { mutate: deleteTask, isPending: taskIsDeleting } =
+    useDeleteTaskMutation();
+
+  const { mutate: updateTask, isPending: taskIsUpdating } =
+    useUpdateTaskMutation();
 
   return (
     <>
@@ -63,17 +74,36 @@ const TaskCard: React.FC<TaskCardProps> = ({
             {!completed && (
               <Tooltip tooltip="Complete Task">
                 <Button
-                  onClick={() => console.log("Mark complete:", id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    updateTask({
+                      taskId: id,
+                      payload: { id, completed: true },
+                    });
+                  }}
                   className="rounded-full bg-green-400/10 p-2 text-green-400 transition hover:bg-green-400/20"
-                  text={<SquareCheck className="h-4 w-4" />}
+                  text={
+                    !taskIsUpdating ? <SquareCheck className="h-4 w-4" /> : ""
+                  }
                 />
               </Tooltip>
             )}
 
             <Tooltip tooltip="Delete Task">
               <Button
-                onClick={() => console.log("Delete this:", id)}
-                text={<Trash className="h-4 w-4" />}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteTask(
+                    { taskId: id },
+                    {
+                      onSuccess: () => {
+                        toast.success("Task Deleted Successfully");
+                      },
+                    }
+                  );
+                }}
+                isLoading={taskIsDeleting}
+                text={!taskIsDeleting ? <Trash className="h-4 w-4" /> : ""}
                 className="rounded-full bg-red-400/10 p-2 text-red-400 transition hover:bg-red-400/20"
               />
             </Tooltip>

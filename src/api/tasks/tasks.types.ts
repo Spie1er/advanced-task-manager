@@ -14,3 +14,20 @@ export enum Priority {
 }
 
 export type TaskListResponse = Task[];
+
+export type CreateTaskPayload = {
+  title: string;
+  description: string;
+  completed: boolean;
+  priority: Priority;
+  createdAt: string;
+};
+
+export type UpdateTaskPayload = {
+  id?: string;
+  title?: string;
+  description?: string;
+  completed?: boolean;
+  priority?: Priority;
+  createdAt?: string;
+};

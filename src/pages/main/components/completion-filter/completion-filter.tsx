@@ -15,6 +15,7 @@ const CompletionFilter: React.FC<CompletionFilterProps> = ({
       <Button
         text="By Status"
         type="secondary"
+        className="w-full"
         iconEnd={<Filter className="h-4 w-4" />}
         onClick={() => setFilterDropdownOpen((prev) => !prev)}
       />

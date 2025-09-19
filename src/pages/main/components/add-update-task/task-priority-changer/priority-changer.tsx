@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/common/button";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { Priority } from "@/api/tasks";
 import { PriorityChangerProps } from "./priority-changer.types";
 
@@ -28,13 +28,19 @@ const PriorityChanger: React.FC<PriorityChangerProps> = ({
   const currentOption = options.find((o) => o === taskPriority) ?? Priority.LOW;
 
   return (
-    <div className="relative w-[200px]">
+    <div className="relative w-full">
       {/* Priority Button (reflects current priority and opens dropdown) */}
       <Button
         type="secondary"
-        text={`Priority: ${priorityMap[currentOption].label}`}
+        text={
+          <>
+            <span className="hidden md:block">Priority:</span>
+            {priorityMap[currentOption].label}
+          </>
+        }
         className={`w-full font-medium ${priorityMap[currentOption].classes}`}
         onClick={() => setIsOpen((prev) => !prev)}
+        iconEnd={<ChevronDown />}
       />
 
       {/* Dropdown */}

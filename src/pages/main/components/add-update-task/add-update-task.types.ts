@@ -3,7 +3,7 @@ import { Priority } from "@/api/tasks";
 export type AddUpdateTaskModalProps = {
   isOpen: boolean;
   taskId?: string;
-  onClose?: () => void;
+  onClose: () => void;
 };
 
 export type TaskFormValues = {

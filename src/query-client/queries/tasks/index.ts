@@ -15,15 +15,17 @@ import { TuskyErrorResponse } from "@/api/index.types";
 
 export const useGetAllTasks = <T>({
   queryOptions,
+  queryParams,
 }: {
   queryOptions?: Omit<
     UseQueryOptions<TaskListResponse, TuskyErrorResponse, T>,
     "queryKey"
   >;
+  queryParams?: Record<string, string | boolean | undefined> | null;
 }): UseQueryResult<T, TuskyErrorResponse> => {
   return useQuery<TaskListResponse, TuskyErrorResponse, T>({
-    queryKey: [TASKS_QUERY_KEY.LIST],
-    queryFn: () => getAllTasks(),
+    queryKey: [TASKS_QUERY_KEY.LIST, queryParams],
+    queryFn: () => getAllTasks(queryParams),
     retry: false,
     gcTime: 0,
     staleTime: 0,

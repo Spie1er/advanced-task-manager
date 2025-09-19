@@ -9,5 +9,3 @@ export const taskFormSchema = z.object({
   id: z.string().nullable(),
   createdAt: z.string().nullable(),
 });
-
-export type TaskFormValues = z.infer<typeof taskFormSchema>;

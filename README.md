@@ -101,4 +101,4 @@ In a terminal window, run:
 
 ## 📂 Project Structure
 
-<!-- TODO ADD PROJECT STRUCTURE - @KOTE -->
+<!-- TODO - TECHEDBT - ADD PROJECT STRUCTURE - @KOTE -->

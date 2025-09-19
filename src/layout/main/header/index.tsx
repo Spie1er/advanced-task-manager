@@ -2,6 +2,7 @@ import { Button } from "@/components/common/button";
 import logo from "../../../assets/logo/tusky-logo.png";
 import { useState } from "react";
 import { AddUpdateTaskModal } from "@/pages/main/components/add-update-task";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -12,9 +13,15 @@ const Header = () => {
         {/* Top Header: Logo + Add Button */}
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           {/* Logo / Title */}
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="logo" className="h-10 w-auto object-contain" />
-            <h1 className="text-lg font-bold text-[#FECEAB]">Tusky</h1>
+          <div>
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src={logo}
+                alt="logo"
+                className="h-10 w-auto object-contain"
+              />
+              <h1 className="text-lg font-bold text-[#FECEAB]">Tusky</h1>
+            </Link>
           </div>
 
           {/* Add Task Button */}

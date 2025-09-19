@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/common/button";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { StatusChangerProps } from "./status-change.types";
 
 const StatusChanger: React.FC<StatusChangerProps> = ({
@@ -26,13 +26,19 @@ const StatusChanger: React.FC<StatusChangerProps> = ({
     options.find((o) => o.value === completed) ?? options[0];
 
   return (
-    <div className="relative w-[200px]">
+    <div className="relative w-full">
       {/* Main Button reflecting current status */}
       <Button
         type="secondary"
-        text={`Status: ${currentOption.label}`}
+        text={
+          <>
+            <span className="hidden md:block">Status:</span>
+            {currentOption.label}
+          </>
+        }
         className={`w-full font-medium ${currentOption.classes}`}
         onClick={() => setIsOpen((prev) => !prev)}
+        iconEnd={<ChevronDown />}
       />
 
       {/* Dropdown */}

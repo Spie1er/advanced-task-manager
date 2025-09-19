@@ -41,6 +41,7 @@ const AddUpdateTaskModal: React.FC<AddUpdateTaskModalProps> = ({
     mode: "onBlur",
   });
 
+  //TODO - TECHDEBT - @KOTE - ADD SKELETON FOR LOADING
   if (isTaskFetching) {
     console.log("loaaading");
   }
@@ -51,7 +52,9 @@ const AddUpdateTaskModal: React.FC<AddUpdateTaskModalProps> = ({
     }
   }, [singleTaskData, reset]);
 
-  const { onSubmit } = useAddUpdateTask();
+  const { onSubmit, taskIsCreating, taskIsUpdating } = useAddUpdateTask({
+    onClose,
+  });
 
   return (
     <Modal
@@ -132,11 +135,13 @@ const AddUpdateTaskModal: React.FC<AddUpdateTaskModalProps> = ({
             />
           </div>
 
-          {/* Submit Button - TODO - NEEDS LOADING UPDATE - @KOTE */}
+          {/* Submit Button - TODO - TECHEDEBT - NEEDS LOADING UPDATE - @KOTE */}
           <Button
             type="primary"
             text="Save Task"
             buttonType="submit"
+            isLoading={taskIsCreating || taskIsUpdating}
+            disabled={taskIsCreating || taskIsUpdating}
             onClick={handleSubmit(onSubmit)}
           />
         </form>
