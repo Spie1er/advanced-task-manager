@@ -135,7 +135,6 @@ const AddUpdateTaskModal: React.FC<AddUpdateTaskModalProps> = ({
             />
           </div>
 
-          {/* Submit Button - TODO - TECHEDEBT - NEEDS LOADING UPDATE - @KOTE */}
           <Button
             type="primary"
             text="Save Task"
