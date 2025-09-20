@@ -119,3 +119,8 @@ src/
 ├─ main.tsx             # Entry point for ReactDOM
 ├─ vite-env.d.ts        # TypeScript type definitions for Vite
 ```
+
+## 📚 Documentation
+
+- [📐 Design Document](./docs/design.md)
+- [📄 RFC-001: Advanced Task Manager](./docs/rfc-001.md)
